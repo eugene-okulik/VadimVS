@@ -23,7 +23,7 @@ my_dict["listt"].pop(1)
 
 
 # добавьте элемент с ключом ('i am a tuple',) и любым значением
-my_dict["dictt"]["i am a tuple"] = "странное название кортеж конечно"
+my_dict["dictt"][("i am a tuple",)] = "странное название кортеж конечно"
 # удалите какой-нибудь элемент
 last_items = my_dict["dictt"].pop("textt")
 
