@@ -12,5 +12,5 @@ my_dict["dictt"]["i am a tuple"] = "странное название корте
 last_items = my_dict["dictt"].pop("textt")
 print(my_dict["dictt"])
 
-# print(my_dict["dictt"][-1] )
+# print(my_dict["dictt"][-1])
 print(type(my_dict["sett"]))
