@@ -1,13 +1,13 @@
 my_dict = {"tuplee": (1, "ttuple", False, 4.42, 11),
-           "listt": [2, 22, "llist", True, "я смогу", 2.22],
-           "dictt": {
-                "intt": 3,
-                "textt": "ddict",
-                "bool_first": False,
-                "bool_second": True,
-                "floatt": 3.33,
-                },
-           "sett": {4, 44, True, "apple", 4.44}}
+        "listt": [2, 22, "llist", True, "я смогу", 2.22],
+        "dictt": {
+            "intt": 3,
+            "textt": "ddict",
+            "bool_first": False,
+            "bool_second": True,
+            "floatt": 3.33,
+                 },
+        "sett": {4, 44, True, "apple", 4.44}}
 
 
 # выведите на экран последний элемент
