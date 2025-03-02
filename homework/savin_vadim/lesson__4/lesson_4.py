@@ -16,7 +16,7 @@ print(my_dict["tuplee"][-1])
 
 # добавьте в конец списка еще один элемент
 my_dict["listt"].append("last_element")
-#удалите второй элемент списка
+# удалите второй элемент списка
 my_dict["listt"].pop(1)
 
 
