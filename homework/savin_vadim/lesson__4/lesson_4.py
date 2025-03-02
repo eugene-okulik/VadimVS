@@ -30,5 +30,5 @@ last_items = my_dict["dictt"].pop("textt")
 
 # добавьте новый элемент в множество
 my_dict["sett"].add("new")
-# удалите элемент из мнOжествa
+# удалите элемент из множествa
 my_dict["sett"].remove(True)
