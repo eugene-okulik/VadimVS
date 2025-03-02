@@ -1,0 +1,92 @@
+[33mcommit bad475dfcb9ed295fb1a02dcae7bfe8db9fc6c8e[m[33m ([m[1;36mHEAD -> [m[1;32mlesson3_savin[m[33m, [m[1;31morigin/lesson3_savin[m[33m)[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 23:06:57 2025 +0300
+
+    arithmetic operations iteration 8
+
+[33mcommit 79507937df75e922b291e3bfdfb5381840073a90[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 23:04:04 2025 +0300
+
+    arithmetic operations iteration 7
+
+[33mcommit 5607f97832b9f266a414d93e8dada2a8e3970f43[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 22:59:30 2025 +0300
+
+    arithmetic operations iteration 6
+
+[33mcommit 5c83a7a60465a94c223aa5e25c4f66947dfc238a[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 22:46:42 2025 +0300
+
+    arithmetic operations iteration 4
+
+[33mcommit f1314abc8a648ee9454608fdc8887e93a36ea1bb[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 22:40:18 2025 +0300
+
+    arithmetic operations iteration 3
+
+[33mcommit be764b7e94ea2f374640e20e95b72e4d4cc6343f[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 22:36:31 2025 +0300
+
+    arithmetic operations iteration 2
+
+[33mcommit fb4227aa55705145dc3fef37c6d99d8aa2493204[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 22:06:26 2025 +0300
+
+    arithmetic operations
+
+[33mcommit e32e5c9f3392b9f107a44b1976529b94ba49b398[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Merge: 6f715ed 9881121
+Author: Eugeny Okulik <98970620+eugene-okulik@users.noreply.github.com>
+Date:   Tue Feb 25 15:23:44 2025 +0300
+
+    Merge pull request #1 from eugene-okulik/Savin_Vadim
+    
+    Savin vadim
+
+[33mcommit 988112136d3d414b319a9988f150cfa1e0e225a5[m[33m ([m[1;31morigin/savin_vadim[m[33m, [m[1;32msavin_vadim[m[33m)[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 14:57:55 2025 +0300
+
+    111
+
+[33mcommit 77cc72ef0f68be238e67df6c0e3cc501f0c95c43[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 14:44:32 2025 +0300
+
+    add line 4
+
+[33mcommit bff6574b07fde9530bdd8e9a27eeb08348aa2a2d[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 13:34:58 2025 +0300
+
+    2-3 lines was added
+
+[33mcommit 2807f82c80037e21445738f90e96463574b33e7a[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Tue Feb 25 12:49:36 2025 +0300
+
+    second line was added
+
+[33mcommit bbd2fa788ea6503bd25c23ba76879edfa684dd12[m
+Author: Vadim <vadimarmo@gmail.com>
+Date:   Mon Feb 24 23:33:13 2025 +0300
+
+    Added file.txt
+
+[33mcommit e63e3a700e5e3b94d23d83bfe3dc9bf0049a5c8f[m
+Author: Savin Vadim <vadimarmo@gmail.com>
+Date:   Mon Feb 24 23:22:41 2025 +0300
+
+    Added file.txt
+
+[33mcommit 6f715ed657979375f3f446b2d7e014be0d5cbde4[m
+Author: Eugeny Okulik <98970620+eugene-okulik@users.noreply.github.com>
+Date:   Fri Feb 21 10:52:14 2025 +0300
+
+    Initial commit
