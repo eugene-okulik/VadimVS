@@ -5,7 +5,8 @@ students_one, students_two, students_tree = students
 subjects_one, subjects_two, subjects_tree = subjects
 
 # example f-string
-print(f"Students {students_one}, {students_two}, {students_tree} study these subjects: {subjects_one}, {subjects_two}, {subjects_tree}")
+print(f"Students {students_one}, {students_two}, {students_tree} "
+      f"study these subjects: {subjects_one}, {subjects_two}, {subjects_tree}")
 
 # example string format
 students_msg = ", ".join(students)
