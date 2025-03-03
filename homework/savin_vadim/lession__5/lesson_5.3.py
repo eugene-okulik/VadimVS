@@ -1,4 +1,4 @@
-# Задание 3
+# Зaдание 3.
 students = ['Ivanov', 'Petrov', 'Sidorov']
 subjects = ['math', 'biology', 'geography']
 students_one, students_two, students_tree = students
