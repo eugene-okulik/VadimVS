@@ -3,7 +3,7 @@ list_result = []
 for number in my_list:
     if number % 15 == 0:
         number = "FuzzBuzz"
-        list_result.append(number)     
+        list_result.append(number)
     elif number % 3 == 0:
         number = "Fuzz"
         list_result.append(number)
