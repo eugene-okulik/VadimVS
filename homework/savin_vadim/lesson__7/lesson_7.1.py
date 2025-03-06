@@ -1,21 +1,11 @@
 def chance(num):
     while True:
-        int_person = int(input("Enter integet: "))
-        if int(num) == int_person:
+        int_person = int(input("Enter integer: "))
+        if num == int_person:
             print("вы угадали")
             break
         else:
             print("вы не угадали")
-            continue
-chance(11)
 
 
-
-# Задать функцию 
-# Ввести число
-# Сравнить совпадает число из функции с введенным числом
-# Если нет то выводим сообщение "попробуйте снова"
-# начать заново со ввода числа
-# Начинаем заново со ввода числа  
-# Если да то завершаем выполнение 
-# Выводим надпись"Поздравляю! Вы угадали!"
+chance(2)
