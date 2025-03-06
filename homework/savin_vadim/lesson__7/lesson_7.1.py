@@ -1,11 +1,12 @@
-def chance(num):
+def chance():
+    num = 11
     while True:
-        int_person = int(input("Enter integer: "))
+        int_person = int(input("Введите число: "))
         if num == int_person:
-            print("вы угадали")
+            print("Поздравляю! Вы угадали!")
             break
         else:
-            print("вы не угадали")
+            print("попробуйте снова")
 
 
-chance(2)
+chance()
