@@ -7,7 +7,7 @@ PRICE_LIST = '''тетрадь 50р
 рюкзак 500р'''
 
 new_price_list = {
-                x.split(" ")[0]: int(x.split(" ")[1][:-1])
-                for x in PRICE_LIST.splitlines()}
+    x.split(" ")[0]: int(x.split(" ")[1][:-1])
+    for x in PRICE_LIST.splitlines()}
 
 print(new_price_list)
