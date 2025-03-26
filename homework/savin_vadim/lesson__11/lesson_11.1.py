@@ -21,7 +21,7 @@ class ChildrenBook(Book):
         self.lesson = lesson
         self.class_for_book = class_for_book
         self.available_tasks = available_tasks
-    
+
     def result(self):
         reserved_info = ", зарезервировано" if self.reserved else ""
         print(f"Название: {self.book_title}, Автор: {self.author}, страниц: "
