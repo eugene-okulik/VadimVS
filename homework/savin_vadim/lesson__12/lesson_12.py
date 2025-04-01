@@ -61,15 +61,15 @@ class Bouquet:
     def avg_live_bouquet(self):  # Средняя жизнь всех цветов в букете (max live)
         if self.is_empty():
             return "В букете нет цветов"
-        self.result_live_bouquet = (round(sum(flower.life_flower for flower in self.flowers_list) /
-                                          len(self.flowers_list), 1))
+        self.result_live_bouquet = (round(sum(flower.life_flower for flower in self.flowers_list)
+                                          / len(self.flowers_list), 1))
         return self.result_live_bouquet
 
     def live_our_bouquet(self):  # средняя жизнь добавленных цветов в наш букет (our bouquet)
         if self.is_empty():
             return "В букете нет цветов"
-        self.result_live_our_bouquet = (round(sum(flower.flower_age for flower in self.flowers_list) /
-                                              len(self.flowers_list), 1))
+        self.result_live_our_bouquet = (round(sum(flower.flower_age for flower in self.flowers_list)
+                                              / len(self.flowers_list), 1))
         return self.result_live_our_bouquet
 
     def total_price(self):  # Стоимость всего букета
