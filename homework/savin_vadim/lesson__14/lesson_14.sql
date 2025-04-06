@@ -1,10 +1,12 @@
+insert into students (name, second_name) VALUES ('Shurup', 'Zakrutov')
+
+INSERT INTO books (title, taken_by_student_id) VALUES ('The Great Gatsby', 20085);
+INSERT INTO books (title, taken_by_student_id) VALUES ('War and Peace', 20085);
+INSERT INTO books (title, taken_by_student_id) VALUES ('Crime and Punishment', 20085);
+
 insert into `groups` (title, start_date, end_date) VALUES ('activist', 'mar 2025', 'may 2025')
 
-insert into students (name, second_name, group_id) VALUES ('Rulon', 'Oboev')
-
-insert into books (title, taken_by_student_id) VALUES ('The Hitchhikers Guide to the Galaxy', 20079)
-insert into books (title, taken_by_student_id) VALUES ('Harry Potter', 20079)
-insert into books (title, taken_by_student_id) VALUES ('Mémoires de la vie privée de Benjamin Franklin', 20079) 
+Update students SET group_id = 4909 WHERE id = 20085
 
 insert into subjets (title) VALUES ('Savin AQA')
 insert into subjets (title) VALUES ('Savin SQL')
@@ -14,13 +16,13 @@ insert into lessons  (title, subject_id) VALUES ('SQL_svs', 10044)
 insert into lessons  (title, subject_id) VALUES ('AQA_svs', 10043)
 insert into lessons  (title, subject_id) VALUES ('Python_svs', 10045)
 
-insert into marks (value, lesson_id , student_id ) VALUES ('10', 9391, 20079)
-insert into marks (value, lesson_id, student_id) VALUES ('9', 9392, 20079)
-insert into marks (value, lesson_id, student_id) VALUES ('8', 9393, 20079)
+insert into marks (value, lesson_id , student_id ) VALUES ('10', 9391, 20085)
+insert into marks (value, lesson_id, student_id) VALUES ('9', 9392, 20085)
+insert into marks (value, lesson_id, student_id) VALUES ('8', 9393, 20085)
 
-select * from marks m WHERE student_id = 20079
+select * from marks m WHERE student_id = 20085
 
-select * from books WHERE taken_by_student_id  = 20079
+select * from books WHERE taken_by_student_id  = 20085
 
 SELECT s.id as student_id, 
        s.name, 
@@ -43,5 +45,5 @@ LEFT JOIN books b ON s.id = b.taken_by_student_id
 LEFT JOIN marks m ON s.id = m.student_id
 LEFT JOIN lessons l ON m.lesson_id = l.id
 LEFT JOIN subjets s2 ON s2.id = l.subject_id
-WHERE s.id = 20079
+WHERE s.id = 20085
 GROUP BY s.id, s.name, s.second_name, g.id, g.title, g.start_date, g.end_date
