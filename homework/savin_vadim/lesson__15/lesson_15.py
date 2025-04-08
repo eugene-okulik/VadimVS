@@ -37,38 +37,19 @@ def insert_students(db):  # Добавляем студента
         cursor.close()
 
 
-def select_last_create(db, table):  # Получаем id последней созданной записи, своего рода "хелпер"
-    if not re.match(r"^(a-zA-Z)+$", table):
-        print("Введи нормальное название таблицы")
-        return None
-    else:
-        try:
-            cursor = new_cursor(db)
-            cursor.execute(f"Select id from {table} "
-                           "Order by id DESC "
-                           "Limit 1")
-            last_id = cursor.fetchone()
-            if last_id:
-                return last_id[0]
-            else:
-                return None
-        except Exception as exc:
-            db.rollback()
-            print(f"Не удалось получить ID послеедней записи из-за ошибки: {exc}")
-            return None
-        finally:
-            cursor.close()
-
-
 def insert_book(db, student_id):  # Добавляем книгу
+    books = []
+    while True:
+        title = input("Введите название книг: ")
+        if title == "":
+            break
+        books.append(title)
     try:
+        data_book = [(name_book, student_id) for name_book in books]
         cursor = new_cursor(db)
-        title_book = input("Введите название книги: ")
         insert_books_query = "INSERT INTO books (title, taken_by_student_id) VALUES (%s, %s)"
-        cursor.execute(insert_books_query, (title_book, student_id))
-        book_id = cursor.lastrowid
+        cursor.executemany(insert_books_query, data_book)
         db.commit()
-        return book_id
     except Exception as exc:
         db.rollback()
         print(f"Не удалось создать книгу из-за ошибки: {exc}")
@@ -219,12 +200,24 @@ def all_student_data(db, student_id):  # ПОлучаем все данные, �
 def work_flow_db():  # объедиинл, чтобы точно отключиться от БД даже в случае ошибки
     try:
         my_student = insert_students(db)
+
         insert_book(db, my_student)
+
         my_group = insert_group(db)
+
         set_student_in_group(db, my_group, my_student)
-        my_subject = insert_subjets(db)
-        my_lesson = insert_lesson(db, my_subject)
-        insert_mark(db, my_lesson, my_student)
+
+        subject_1 = insert_subjets(db)
+        subject_2 = insert_subjets(db)
+        subject_3 = insert_subjets(db)
+
+        lesson_1 = insert_lesson(db, subject_1)
+        lesson_2 = insert_lesson(db, subject_2)
+        lesson_3 = insert_lesson(db, subject_3)
+
+        insert_mark(db, lesson_1, my_student)
+        insert_mark(db, lesson_2, my_student)
+        insert_mark(db, lesson_3, my_student)
 
         select_all_mark(db, my_student)
         select_taken_book(db, my_student)
