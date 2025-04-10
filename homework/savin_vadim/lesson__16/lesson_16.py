@@ -8,7 +8,7 @@ dotenv.load_dotenv()
 
 this_dir = os.path.dirname(__file__)
 path_csv = os.path.join(os.path.dirname(os.path.dirname(this_dir)),
-                         'eugene_okulik', 'Lesson_16', 'hw_data', 'data.csv')
+                        'eugene_okulik', 'Lesson_16', 'hw_data', 'data.csv')
 
 
 def read_file():
