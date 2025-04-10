@@ -7,8 +7,8 @@ dotenv.load_dotenv()
 
 
 this_dir = os.path.dirname(__file__)
-path_csv = os.path.join(((os.path.dirname(os.path.dirname(os.path.dirname(__file__)))),
-                         'eugene_okulik', 'Lesson_16', 'hw_data', 'data.csv'))
+path_csv = os.path.join(os.path.dirname(os.path.dirname(this_dir)),
+                         'eugene_okulik', 'Lesson_16', 'hw_data', 'data.csv')
 
 
 def read_file():
@@ -57,4 +57,4 @@ db = my_sql.connect(
 )
 
 data_csv = read_file()
-parse_data(data_csv)
+parse_data(db, data_csv)
