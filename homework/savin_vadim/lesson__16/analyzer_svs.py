@@ -16,10 +16,9 @@ with open(args.path) as open_file:
         if args.search in line:
             try:
                 position = line.index(args.search)
-                
                 match position:
-                    case _ if position > 4 and position + 5 > len(line):  # Если требуется взять 
-                                                                        # несколько слов со следующей стркои
+                    case _ if position > 4 and position + 5 > len(line):  # Если требуется взять
+                        # несколько слов со следующей стркои
                         future_row = next(open_file, None)
                         if future_row is not None:
                             future_index = abs(len(line) - (position + 5))
