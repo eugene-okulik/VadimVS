@@ -85,11 +85,10 @@ def method_patch(name='', group='2'):  # ToDo: переделать метод �
     check = method_get(id_object)
     body = {
         "name": name,
-        "data":
-            {
-                "group": group,
-            }
+        "data": {
+            "group": group
         }
+    }
 
     url = f'http://167.172.172.115:52353/object/{id_object}'
     create_object = requests.put(url=url, json=body)
