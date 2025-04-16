@@ -9,14 +9,15 @@ faker_price = faker.random_int(min=100, max=1500, step=15)
 faker_group = faker.random_int(min=1, max=10, step=1)
 
 
-def test_all_get(method_all_get, method_post):
+def test_all_get(start_end, before_after_func, response_get, method_post):
     url = 'http://167.172.172.115:52353/object'
     get_object = requests.get(url=url)
     assert get_object.status_code == 200, 'status code is incorrect'
-    assert len(method_all_get['data']) + 1 == len(get_object.json()['data'])
+    assert len(response_get['data']) + 1 == len(get_object.json()['data'])
 
 
-def test_method_get(method_post):
+@pytest.mark.medium
+def test_method_get(before_after_func, method_post):
     url = f"http://167.172.172.115:52353/object/{method_post['id']}"
     response = requests.get(url=url)
     assert response.status_code == 200, "status code is incorrect"
@@ -24,9 +25,11 @@ def test_method_get(method_post):
     assert all(key in response.json() for key in ['id', 'name', 'data']), 'keys is incorrect'
 
 
-def test_method_post():
+@pytest.mark.critical
+@pytest.mark.parametrize("name", ["Рулон Обоев", "Гвоздь Молотков", "Туалет Бумагов"])
+def test_method_post(before_after_func, name):
     url = 'http://167.172.172.115:52353/object'
-    body = {"name": faker_name, "data": {'group': faker_group, 'price': faker_price}}
+    body = {"name": name, "data": {'group': faker_group, 'price': faker_price}}
     create_object = requests.post(url=url, json=body)
     response_data = create_object.json()
     assert create_object.status_code == 200, "status code is incorrect"
@@ -39,7 +42,7 @@ def test_method_post():
     requests.delete(url=url1)
 
 
-def test_method_put(method_post):
+def test_method_put(before_after_func, method_post):
     body = {"name": faker_name, "data": {'price': faker_price}}
     url = f'http://167.172.172.115:52353/object/{method_post["id"]}'
     create_object = requests.put(url=url, json=body)
@@ -50,7 +53,7 @@ def test_method_put(method_post):
     assert 'group' not in response_data['data'], 'There should be no (group) field.'
 
 
-def test_method_patch(method_post):  # рабоатет как пут и надо подумать над проверками , взять пост и гет перед началом
+def test_method_patch(before_after_func, method_post):  # рабоатет как пут
     body = {"name": faker_name, "data": {"group": faker_group}}
     url = f'http://167.172.172.115:52353/object/{method_post["id"]}'
     create_object = requests.put(url=url, json=body)
@@ -61,7 +64,7 @@ def test_method_patch(method_post):  # рабоатет как пут и над�
     assert response_data['data']['price'] == method_post()['data']['price'], "'price' is mismatch"  # ToDo
 
 
-def test_method_delete(method_post):
+def test_method_delete(before_after_func, method_post):
     url = f'http://167.172.172.115:52353/object/{method_post["id"]}'
     response = requests.delete(url=url)
     assert response.status_code == 200, "status code is incorrect"
@@ -69,7 +72,7 @@ def test_method_delete(method_post):
 
 
 @pytest.fixture()
-def method_all_get():
+def response_get():
     url = 'http://167.172.172.115:52353/object'
     response_get = requests.get(url=url).json()
     return response_get
@@ -83,4 +86,19 @@ def method_post():
     id_object = create_object.json()
     yield id_object  # пример JSON {'data': {'group': str, 'price': int}, 'id': int, 'name': str}
     url_delete = f'http://167.172.172.115:52353/object/{id_object["id"]}'
-    requests.delete(url=url_delete)
+    if requests.get(url=url_delete).status_code == 200:
+        requests.delete(url=url_delete)
+
+
+@pytest.fixture(scope="session")
+def start_end():
+    print('\nStart testing')
+    yield
+    print('Testing completed')
+
+
+@pytest.fixture()
+def before_after_func():
+    print('\nbefore test')
+    yield
+    print('\nafter test')
