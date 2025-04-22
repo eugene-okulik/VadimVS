@@ -4,10 +4,10 @@ import requests
 from test_api_svs.Endpoints.parent_method import ParentMethod
 
 
-class DeleteMethod(ParentMethod):
+class MethodDelete(ParentMethod):
     @allure.step('Удаление объекта')
-    def deleting(self):
-        url_with_id = f'http://167.172.172.115:52353/object/{self.object_id}'
+    def deleting(self, id_obj):
+        url_with_id = f'http://167.172.172.115:52353/object/{id_obj}'
         self.response = requests.delete(url=url_with_id)
 
     @allure.step('Проверить текст об удалении определенного ID')

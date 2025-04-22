@@ -15,8 +15,8 @@ class MethodGet(ParentMethod):
         return self.len_old_get
 
     @allure.step('Получение обекта по ID')
-    def get_object_by_id(self):
-        url = f'http://167.172.172.115:52353/object/{self.object_id}'
+    def get_object_by_id(self, id_obj):
+        url = f'http://167.172.172.115:52353/object/{id_obj}'
         self.response = requests.get(url=url)
         self.response_json = self.response.json()
         self.new_id = self.response_json['id']
@@ -37,9 +37,9 @@ class MethodGet(ParentMethod):
         assert self.len_old_get + 1 == len_new_get, 'Length of response is not equal to expected'
 
     @allure.step('Проверить наличие созданного объекта в БД')
-    def assert_by_id(self):
-        assert self.object_id == self.new_id, 'ID is not equal to expected'
+    def assert_by_id(self, id_obj):
+        assert id_obj == self.new_id, 'ID is not equal to expected'
 
     @allure.step('Проверить наличие всех параметров у созданного объекта')
-    def assert_key(self):
-        assert all(key in self.response.json() for key in ['id', 'name', 'data']), 'keys is incorrect'
+    def assert_keys(self, id_obj, name, data):
+        assert all(key in self.response.json() for key in [id_obj, name, data]), 'keys is incorrect'

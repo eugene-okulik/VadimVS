@@ -1,31 +1,52 @@
-from test_api_svs.Endpoints.method_deleting import DeleteMethod
 from test_api_svs.Endpoints.method_post import MethodPost
 from test_api_svs.Endpoints.method_put import MethodPut
 from test_api_svs.Endpoints.method_patch import MethodPatch
 from test_api_svs.Endpoints.method_get import MethodGet
+from test_api_svs.Endpoints.method_deleting import MethodDelete
+
 import pytest
 
 
 @pytest.fixture()
 def fixt_method_post():
-    return MethodPost()
+    obj = MethodPost()
+    yield obj
+    obj.deleting_for_test()
 
 
 @pytest.fixture()
 def fixt_method_delete():
-    return DeleteMethod()
+    obj = MethodDelete()
+    obj.create_for_test()
+    return obj
 
 
 @pytest.fixture()
 def fixt_method_put():
-    return MethodPut()
+    obj = MethodPut()
+    obj.create_for_test()
+    yield obj
+    obj.deleting_for_test()
 
 
 @pytest.fixture()
 def fixt_method_patch():
-    return MethodPatch()
+    obj = MethodPatch()
+    obj.create_for_test()
+    yield obj
+    obj.deleting_for_test()
 
 
 @pytest.fixture()
 def fixt_method_get():
-    return MethodGet()
+    obj = MethodGet()
+    obj.create_for_test()
+    yield obj
+    obj.deleting_for_test()
+
+
+@pytest.fixture()
+def fixt_method_all_get():
+    obj = MethodGet()
+    yield obj
+    obj.deleting_for_test()
