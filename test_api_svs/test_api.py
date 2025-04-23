@@ -1,6 +1,7 @@
 from test_api_svs.helpers.data_test import TEST_DATA
 import pytest
 import allure
+import requests
 
 
 @allure.title('Получение всех объектов')
@@ -10,8 +11,9 @@ import allure
 def test_meth_all_get(fixt_method_all_get):
     fixt_method_all_get.get_all_objects()
     fixt_method_all_get.assert_status_code(200)
-    fixt_method_all_get.create_for_test()
-    fixt_method_all_get.len_new_get()
+    url = 'http://167.172.172.115:52353/object'
+    body = {"name": 'Тестов', "data": {'group': 1, 'price': 11}}
+    fixt_method_all_get.object_id = requests.post(url=url, json=body).json()['id']
     fixt_method_all_get.assert_len_with_new_obj()
 
 

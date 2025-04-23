@@ -1,4 +1,3 @@
-import requests
 import allure
 
 
@@ -8,17 +7,6 @@ class ParentMethod:
     response_json = None
     name = None
     body = None
-
-    def create_for_test(self, name='Testov Test', group_data=1, price_data=1):
-        url = 'http://167.172.172.115:52353/object'
-        self.body = {"name": name, "data": {'group': group_data, 'price': price_data}}
-        self.response = requests.post(url=url, json=self.body)
-        self.response_json = self.response.json()
-        self.object_id = self.response_json['id']
-
-    def deleting_for_test(self):
-        url_with_id = f'http://167.172.172.115:52353/object/{self.object_id}'
-        self.response = requests.delete(url=url_with_id)
 
     @allure.step('Проверка статус кода ')
     def assert_status_code(self, code=200):
@@ -32,7 +20,6 @@ class ParentMethod:
     def assert_srt_type(self, name):
         assert isinstance(self.response_json.get(f'{name}'), str), '"name" is not a string'
 
-    # пример JSON {'data': {'group': str, 'price': int}, 'id': int, 'name': str}
     @allure.step('Проверка параметра "price" на соотвествие')
     def assert_price(self, price):
         assert self.response_json['data']['price'] == price, '"price" is mismatch'
