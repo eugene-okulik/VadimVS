@@ -4,8 +4,8 @@ from test_api_svs.Endpoints.parent_method import ParentMethod
 
 
 class MethodGet(ParentMethod):
-    len_old_get = None
     new_id = None
+    len_old_get = None
 
     @allure.step('Получить количество объектов до создания ноовго объекта')
     def get_all_objects(self):
@@ -21,13 +21,6 @@ class MethodGet(ParentMethod):
         self.response_json = self.response.json()
         self.new_id = self.response_json['id']
         return self.new_id
-
-    @allure.step('Получеие количества обектов после создание нового объекта')
-    def len_new_get(self):
-        url = 'http://167.172.172.115:52353/object'
-        self.response = requests.get(url=url)
-        self.len_new_get = len(self.response.json()['data'])
-        return self.len_new_get
 
     @allure.step('Проверить что количество объектов увеличилось на 1 ')
     def assert_len_with_new_obj(self):
