@@ -36,7 +36,6 @@ def test_added_in_cart_new_tab(driver: WebDriver, action: ActionChains, wait: We
 
 def test_move_coursor(driver: WebDriver, action: ActionChains, wait: WebDriverWait):
     get_page(driver, 'https://magento.softwaretestingboard.com/gear/bags.html')
-    # await_locator(wait, disagree_btn)
     wait.until(ec.element_to_be_clickable(disagree_btn))
     finding_element(driver, *disagree_btn).click()
     await_locator(wait, product_items)
