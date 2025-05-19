@@ -1,4 +1,3 @@
-from conftest import driver
 from selenium.webdriver.support import expected_conditions as ec
 
 
