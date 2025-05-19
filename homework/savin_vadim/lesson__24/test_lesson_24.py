@@ -44,8 +44,6 @@ def test_move_coursor(driver: WebDriver, action: ActionChains, wait: WebDriverWa
     action.move_to_element(elements[0]).move_to_element(add_compare).click().perform()
     await_locator(wait, compare_list)
     elements = finding_elements(driver, *product_items)
-
-    assert elements[0].find_element(
-        By.XPATH, '//a[@class="product-item-link"]').text.strip() == finding_element(driver,
-                                                                                     *compare_list).text.strip().strip(
-        '\nRemove This Item')
+    added_element_for_assert = elements[0].find_element(By.XPATH, '//a[@class="product-item-link"]')
+    element_from_compare = finding_element(driver, *compare_list)
+    assert added_element_for_assert.text.strip() == element_from_compare.text.strip().strip('\nRemove This Item')
