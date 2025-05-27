@@ -6,6 +6,7 @@ from test_UI_svs_pw.utils.selector_create_account import success_message, error_
 import allure
 from test_UI_svs_pw.utils.helper import locator_for_error
 
+
 class CreateAccount(BasePage):
     page_url = '/customer/account/create/'
 
