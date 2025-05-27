@@ -4,7 +4,7 @@ from test_UI_svs_pw.pages.base_page import BasePage
 from test_UI_svs_pw.utils.selector_create_account import success_message, error_message_registration, create_button, \
     input_first_name, input_last_name, input_email, input_password, input_confirm_password
 import allure
-
+from test_UI_svs_pw.utils.helper import locator_for_error
 
 class CreateAccount(BasePage):
     page_url = '/customer/account/create/'
@@ -20,7 +20,9 @@ class CreateAccount(BasePage):
 
     @allure.step("Валидация фронтенд ошибки")
     def check_required_input_error(self, name_input, text):
-        element = self.element(name_input)
+        locator = locator_for_error(name_input)
+        assert locator is not None, f'Name input for {name_input} not found!'
+        element = self.element(locator)
         expect(element).to_have_text(text)
 
     @allure.step("Нажатие кнопки создания аккаунта")

@@ -7,7 +7,7 @@ class SalePage(BasePage):
 
     @allure.step("Переход в другой раздел сайта")
     def redirect_to_page(self, section):
-        item_women_count = self.page.locator('//div[@class="categories-menu"]//ul').locator('nth=0').locator('li')
+        item_women_count = self.element('//div[@class="categories-menu"]//ul').locator('nth=0').locator('li')
         count = item_women_count.count()
         for i in range(count):
             element = item_women_count.locator(f'nth={i}').text_content()
