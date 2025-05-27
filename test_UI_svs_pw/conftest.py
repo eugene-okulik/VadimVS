@@ -1,6 +1,5 @@
 import pytest
-from playwright.sync_api import BrowserContext
-from playwright.sync_api import Page
+from playwright.sync_api import BrowserContext, Page
 from test_UI_svs_pw.pages.create_account import CreateAccount
 from test_UI_svs_pw.pages.collections_eco_friendly import CollectionsEcoFriendly
 from test_UI_svs_pw.pages.jackets_women import JacketsWomen
