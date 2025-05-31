@@ -1,0 +1,26 @@
+Задание 2:
+
+head -1 svs_file.txt                        Go to first line in file
+tail -1 svs_file.txt                        Go to last line in file
+
+less svs_file.txt                           # открыть файл в less
+Внутри less:
+ 'space'                 Forward one window
+ 'j'                     Forward one line
+ 'k'                     Backward one line
+ '/'[искомый текст]      Search forward for matching line
+ '?'[искомый текст]      Search backward for matching line
+ '/' и на 'n'            Repeat previous search
+ '/' и на 'N'            Repeat previous search in reverse direction
+
+Задание 3:
+
+/dev/null                символьное устройство
+/dev/zero                символьное устройство
+/dev/sda                 файл отсуствует
+/dev/tty                 символьное устройство
+/root                    директория
+/etc/passwd              файл
+/proc/mounts             символическая ссылка
+/bin/ls                  файл
+/bin/zcat                файл
